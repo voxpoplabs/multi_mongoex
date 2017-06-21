@@ -15,7 +15,7 @@ end
 
 ## Usage
 
-```
+```elixir
 MultiMongoex.execute_command(
   %{
     host: "127.0.0.1",
