@@ -22,7 +22,6 @@ defmodule MultiMongoex.Mixfile do
     [
       {:mongodb, ">= 0.0.0"},
       {:poolboy, ">= 0.0.0"},
-      {:general_helpers, in_umbrella: true}
     ]
   end
 end

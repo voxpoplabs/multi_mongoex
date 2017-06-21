@@ -55,8 +55,9 @@ defmodule MultiMongoex.Registry do
           names = Map.put(names, name, pid)
           {:reply, pid, {names, refs}}
 
-        case_return_value -> GeneralHelpers.Debugger.prod_safe_raise("This Branch Is Not Yet Mitigated For.", __MODULE__, __ENV__.function, binding())
-          {:reply, "pid", {names, refs}}
+        case_return_value ->
+          IO.inspect("This Branch Is Not Yet Mitigated For.")
+          {:reply, pid, {names, refs}}
       end
     end
   end

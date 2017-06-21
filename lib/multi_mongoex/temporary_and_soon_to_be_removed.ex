@@ -5,7 +5,7 @@ defmodule MultiMongoex.TemporaryAndSoonToBeRemoved do
       # use MultiMongoex.Repo
 
       def instance(id) do
-        find_one("instances", _id: GeneralHelpers.Converter.Bson.to_object_id(id))
+        find_one("instances", _id: MultiMongoex.Helpers.to_object_id(id))
       end
     end
   end
