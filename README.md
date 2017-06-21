@@ -18,9 +18,14 @@ end
 ```elixir
 MultiMongoex.execute_command(
   %{
-    host: "127.0.0.1",
-    db: "test_database"
-  }
+    name: "user_database",
+    get_connection_information: fn () ->
+      %{
+        host: "127.0.0.1",
+        db: "test_database"
+      }
+    end
+  },
   command,
   args
 )
