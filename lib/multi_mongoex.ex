@@ -1,4 +1,4 @@
-defmodule VplMongoDb do
+defmodule MultiMongoex do
 
   def execute_command(mongo_setup, command, args) do
     # Lookup mongo and ensure the supervisor is running
@@ -14,7 +14,7 @@ defmodule VplMongoDb do
   end
 
   defp lookup(mongo_setup, callback) do
-    case VplMongoDb.Registry.create(VplMongoDb.Registry, mongo_setup) do
+    case MultiMongoex.Registry.create(MultiMongoex.Registry, mongo_setup) do
       { :ok, pid } -> callback.(pid)
       _ -> { :error, "Registry not working" }
     end

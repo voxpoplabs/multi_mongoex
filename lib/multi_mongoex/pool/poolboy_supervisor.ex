@@ -1,4 +1,4 @@
-defmodule VplMongoDb.Poolboy.Supervisor do
+defmodule MultiMongoex.Poolboy.Supervisor do
   use Supervisor
 
   # A simple module attribute that stores the supervisor name
@@ -9,7 +9,7 @@ defmodule VplMongoDb.Poolboy.Supervisor do
   def init(%{ name: name, connection_options: connection_options }) do
     pool_options = [
       name: {:local, name},
-      worker_module: VplMongoDb.Pool.Worker,
+      worker_module: MultiMongoex.Pool.Worker,
       size: 10,
       max_overflow: 1
     ]

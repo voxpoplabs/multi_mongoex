@@ -1,6 +1,6 @@
-defmodule VplMongoDbTest do
+defmodule MultiMongoexTest do
   use ExUnit.Case
-  doctest VplMongoDb
+  doctest MultiMongoex
 
   test "the truth" do
     assert 1 + 1 == 2

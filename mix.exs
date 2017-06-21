@@ -1,8 +1,8 @@
-defmodule VplMongoDb.Mixfile do
+defmodule MultiMongoex.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :vpl_mongo_db,
+    [app: :multi_mongoex,
      version: "0.1.0",
      build_path: "../../_build",
      config_path: "../../config/config.exs",
@@ -15,7 +15,7 @@ defmodule VplMongoDb.Mixfile do
 
   def application do
     [extra_applications: [:logger],
-     mod: {VplMongoDb.Application, []}]
+     mod: {MultiMongoex.Application, []}]
   end
 
   defp deps do

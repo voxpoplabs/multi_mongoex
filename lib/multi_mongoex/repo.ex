@@ -1,4 +1,4 @@
-defmodule VplMongoDb.Repo do
+defmodule MultiMongoex.Repo do
 
   defmacro __using__(_) do
     quote location: :keep do

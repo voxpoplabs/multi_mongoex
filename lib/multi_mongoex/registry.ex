@@ -1,5 +1,5 @@
 require IEx
-defmodule VplMongoDb.Registry do
+defmodule MultiMongoex.Registry do
   use GenServer
 
   ## Client API
@@ -8,7 +8,7 @@ defmodule VplMongoDb.Registry do
   Starts the registry.
   """
   def start_link do
-    GenServer.start_link(__MODULE__, :ok, name: VplMongoDb.Registry)
+    GenServer.start_link(__MODULE__, :ok, name: MultiMongoex.Registry)
   end
 
   @doc """
@@ -47,7 +47,7 @@ defmodule VplMongoDb.Registry do
       {:reply, names[name], {names, refs}}
     else
       %{ name: name, connection_options: mongo_setup[:get_connection_info].() }
-      |> VplMongoDb.Pool.Supervisor.start_mongo_connection
+      |> MultiMongoex.Pool.Supervisor.start_mongo_connection
       |> case do
         {:ok, pid} ->
           ref = Process.monitor(pid)

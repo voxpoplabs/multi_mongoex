@@ -1,4 +1,4 @@
-defmodule VplMongoDb.Application do
+defmodule MultiMongoex.Application do
   @moduledoc false
 
   use Application
@@ -13,11 +13,11 @@ defmodule VplMongoDb.Application do
       #   database: Application.get_env(:vpl_mongo_db, :database),
       #   pool: Application.get_env(:vpl_mongo_db, :pool)
       # ]]),
-      worker(VplMongoDb.Registry, []),
-      supervisor(VplMongoDb.Pool.Supervisor, [])
+      worker(MultiMongoex.Registry, []),
+      supervisor(MultiMongoex.Pool.Supervisor, [])
     ]
 
-    opts = [strategy: :one_for_one, name: VplMongoDb.Supervisor]
+    opts = [strategy: :one_for_one, name: MultiMongoex.Supervisor]
     Supervisor.start_link(children, opts)
   end
 end
