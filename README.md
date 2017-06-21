@@ -15,6 +15,7 @@ end
 
 ## Usage
 
+```
 MultiMongoex.execute_command(
   %{
     host: "127.0.0.1",
@@ -23,6 +24,7 @@ MultiMongoex.execute_command(
   command,
   args
 )
+```
 
 ## Available calls
 
