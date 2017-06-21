@@ -57,7 +57,7 @@ defmodule MultiMongoex.Registry do
 
         case_return_value ->
           IO.inspect("This Branch Is Not Yet Mitigated For.")
-          {:reply, pid, {names, refs}}
+          {:reply, "pid", {names, refs}}
       end
     end
   end
