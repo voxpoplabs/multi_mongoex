@@ -2,8 +2,13 @@ defmodule MultiMongoex.Repo do
 
   defmacro __using__(_) do
     quote location: :keep do
+
+      def find_as_cursor(conn, args = %{collection: collection, query: query}) do
+        Mongo.find(conn, collection, query, limit: args[:limit] || 50, cursor_type: :tailable, cursor_timeout: false)
+      end
+
       def find(conn, args = %{collection: collection, query: query}) do
-        Mongo.find(conn, collection, query, limit: args[:limit] || 50)
+        Mongo.find(conn, collection, query, limit: args[:limit] || 50, skip: args[:skip] || 0)
         |> Enum.to_list
       end
 
