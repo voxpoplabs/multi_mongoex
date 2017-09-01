@@ -51,6 +51,10 @@ defmodule MultiMongoex.Repo do
       def update(conn, %{collection: collection, filter: filter, attributes: attributes }) do
         Mongo.update_one(conn, collection, filter, %{"$set": attributes})
       end
+
+      def delete(conn, %{collection: collection, filter: filter}) do
+        Mongo.delete_one(conn, collection, filter)
+      end
     end
   end
 
