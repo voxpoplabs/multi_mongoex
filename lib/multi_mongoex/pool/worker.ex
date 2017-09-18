@@ -22,6 +22,9 @@ defmodule MultiMongoex.Pool.Worker do
         database: connection_options[:db] || 0
       )
 
+      # Wait for mongo connection to be established
+      Process.sleep(100)
+
       client
     end
 
