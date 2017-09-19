@@ -13,9 +13,7 @@ defmodule MultiMongoex.Repo do
       end
 
       def find_one(conn, %{collection: collection, query: query}) do
-        Mongo.find(conn, collection, query, limit: 1)
-        |> Enum.to_list
-        |> Enum.at(0)
+        Mongo.find_one(conn, collection, query)
       end
 
       def first(conn, %{collection: collection}) do
@@ -54,6 +52,10 @@ defmodule MultiMongoex.Repo do
 
       def delete(conn, %{collection: collection, filter: filter}) do
         Mongo.delete_one(conn, collection, filter)
+      end
+
+      def delete_many(conn, %{collection: collection, filter: filter}) do
+        Mongo.delete_many(conn, collection, filter)
       end
     end
   end

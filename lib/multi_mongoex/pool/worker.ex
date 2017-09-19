@@ -23,7 +23,7 @@ defmodule MultiMongoex.Pool.Worker do
       )
 
       # Wait for mongo connection to be established
-      Process.sleep(100)
+      # Process.sleep(100)
 
       client
     end
@@ -45,6 +45,7 @@ defmodule MultiMongoex.Pool.Worker do
   @doc false
   def handle_call(%{command: command, args: args}, _from, %{conn: nil, connection_options: connection_options}) do
     conn = Connector.connect(connection_options)
+
     results = apply(MultiMongoex.Pool.Worker, command, [conn, args])
     {:reply, results, %{conn: conn, connection_options: connection_options}}
   end

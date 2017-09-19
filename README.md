@@ -19,7 +19,7 @@ end
 MultiMongoex.execute_command(
   %{
     name: :user_database,
-    get_connection_information: fn () ->
+    get_connection_info: fn () ->
       %{
         host: "127.0.0.1",
         db: "test_database"
@@ -35,12 +35,12 @@ MultiMongoex.execute_command(
 
 | Command  | Arguments |
 | ------------- | ------------- |
-| find  | %{ collection: collection, query: query }  |
-| find_one  | %{ collection: collection, query: query }  |
-| first  | %{ collection: collection }  |
-| last  | %{ collection: collection }  |
-| count  | %{ collection: collection, query: query }  |
-| aggregate  | %{ collection: collection, pipeline: pipeline }  |
-| insert_one  | %{ collection: collection, document: document }  |
-| insert_many  | %{ collection: collection, documents: documents }  |
-| update  | %{ collection: collection, filter: filter, attributes: attributes }  |
+| :find  | %{ collection: collection, query: query }  |
+| :find_one  | %{ collection: collection, query: query }  |
+| :first  | %{ collection: collection }  |
+| :last  | %{ collection: collection }  |
+| :count  | %{ collection: collection, query: query }  |
+| :aggregate  | %{ collection: collection, pipeline: pipeline }  |
+| :insert_one  | %{ collection: collection, document: document }  |
+| :insert_many  | %{ collection: collection, documents: documents }  |
+| :update  | %{ collection: collection, filter: filter, attributes: attributes }  |
