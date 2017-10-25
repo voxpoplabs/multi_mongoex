@@ -29,8 +29,12 @@ defmodule MultiMongoex.Repo do
       end
 
       def count(conn, %{collection: collection, query: query}) do
-        {:ok, count} = Mongo.count(conn, collection, query)
-        count
+        Mongo.count(conn, collection, query)
+        |> case do
+          {:ok, count} -> count
+          {:error, msg} -> IO.inspect([msg: msg, fun: "count/2", conn: conn, collection: collection, query: query], label: :multi_mongo_error)
+          anything_else -> IO.inspect([else_msg: anything_else, fun: "count/2", conn: conn, collection: collection, query: query], label: :multi_mongo_error)
+        end
       end
 
       def aggregate(conn, args = %{ collection: collection, pipeline: pipeline }) do
