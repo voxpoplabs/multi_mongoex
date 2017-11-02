@@ -20,7 +20,8 @@ defmodule MultiMongoex.Mixfile do
 
   defp deps do
     [
-      {:mongodb, ">= 0.0.0"},
+      # {:mongodb, ">= 0.0.0"},
+      {:mongodb, git: "https://github.com/Ajwah/mongodb.git"},
       {:poolboy, ">= 0.0.0"},
     ]
   end
