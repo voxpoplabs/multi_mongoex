@@ -23,7 +23,7 @@ defmodule MultiMongoex.Pool.Worker do
       )
 
       # Wait for mongo connection to be established
-      # Process.sleep(100)
+      Process.sleep(100)
 
       client
     end
