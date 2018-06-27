@@ -22,6 +22,12 @@ defmodule MultiMongoex.Repo do
         |> Enum.at(0)
       end
 
+      def last(conn, %{collection: collection, query: query}) do
+        Mongo.find(conn, collection, query, limit: 1, sort: ["_id": -1])
+        |> Enum.to_list
+        |> Enum.at(0)
+      end
+
       def last(conn, %{collection: collection}) do
         Mongo.find(conn, collection, %{}, limit: 1, sort: ["_id": -1])
         |> Enum.to_list
